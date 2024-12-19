@@ -1,25 +1,24 @@
-FROM ghcr.io/ublue-os/base-main:latest
+ARG BASE_VERSION="${MAJOR_VERSION:-latest}"
+ARG BASE_IMAGE="ghcr.io/centos-workstation/achillobator"
+ARG CACHE_ID_SUFFIX="beardy-achillobator-latest"
 
-## Nvidia users use this instead
-# FROM ghcr.io/ublue-os/base-nvidia:latest
+FROM scratch AS ctx
+COPY / /
 
+FROM ${BASE_IMAGE}:${BASE_VERSION}
 
-## Install a Desktop
-# Use `dnf5 group list` to see possible group packages to install, or choose them individually
+ARG IMAGE_NAME="${IMAGE_NAME:-beardy-achillobator}"
+ARG IMAGE_VENDOR="${IMAGE_VENDOR:-beardy-os}"
+ARG MAJOR_VERSION="${MAJOR_VERSION:-latest}"
 
-RUN dnf5 group install kde-desktop kde-apps
+# COPY system_files /
+# COPY build.sh /tmp/build.sh
 
-## Install applications
-# Anything in Fedora
+# RUN ln -sf /run /var/run
 
-RUN dnf5 install vlc
+# RUN mkdir -p /var/lib/alternatives && \
+#     /tmp/build.sh && \
+#     dnf clean all && \
+#     ostree container commit 
 
-## Add COPRs
-# RUN dnf copr enable (copr-author/name)
-# RUN dnf5 install thing-from-copr
-
-## Manage services
-# systemctl enable foo.service
-
-## Final command
 RUN bootc container lint

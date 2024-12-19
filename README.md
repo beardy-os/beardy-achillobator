@@ -1,4 +1,7 @@
-# image-template
+# Beardy Achillobator
+
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/beardy-achillobator)](https://artifacthub.io/packages/search?repo=beardy-achillobator)
+[![build-ublue-custom](https://github.com/beardy-os/beardy-achillobator/actions/workflows/build.yml/badge.svg)](https://github.com/beardy-os/beardy-achillobator/actions/workflows/build.yml)
 
 ## Purpose
 
