@@ -99,7 +99,7 @@ build $target_image=image_name $tag=default_tag:
     podman build \
         "${BUILD_ARGS[@]}" \
         "${LABELS[@]}" \
-        --pull newer \
+        --pull=newer \
         --tag "${image_name}:${tag}" \
         .
 
