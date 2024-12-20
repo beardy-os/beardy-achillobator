@@ -1,5 +1,5 @@
 export repo_organization := env("GITHUB_REPOSITORY_OWNER", "centos-workstation")
-export image_name := env("IMAGE_NAME", "achillobator")
+export image_name := env("IMAGE_NAME", "beardy-achillobator")
 export centos_version := env("CENTOS_VERSION", "stream10")
 export default_tag := env("DEFAULT_TAG", "latest")
 
