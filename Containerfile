@@ -13,11 +13,11 @@ ARG MAJOR_VERSION="${MAJOR_VERSION:-latest}"
 
 RUN ln -sf /run /var/run
 
-RUN mkdir -p /var/lib/alternatives && \
-    /tmp/build.sh && \
+RUN \
+    --mount=type=bind,from=ctx,source=/,target=/ctx \
+    mkdir -p /var/lib/alternatives && \
+    /ctx/build.sh && \
     dnf clean all && \
-    ostree container commit 
-
-RUN bootc container lint
+    ostree container commit
 
 RUN bootc container lint
