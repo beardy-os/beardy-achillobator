@@ -51,7 +51,7 @@
             just check
   
         - name: Maximize build space
-          uses: ublue-os/remove-unwanted-software@v7
+          uses: ublue-os/remove-unwanted-software@v9
           with:
             remove-codeql: true
   
